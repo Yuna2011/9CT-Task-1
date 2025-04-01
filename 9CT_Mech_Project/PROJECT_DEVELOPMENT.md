@@ -12,7 +12,7 @@ I need to design a program for the EV3 robot to navigate around the green and bl
 #### List at least 3-5 specific actions your robot needs to perform to complete the task. These should be clear, simple actions like moving, turning, detecting something or triggering an event (e.g. sound or lights):
 1. Detecting the green, blue, red and yellow blocks
 2. Turning 90° or going around when green and blue blocks is detected
-3. Moving or picking up the red and yellow blocks if it is detected
+3. Put it into the "cage" if red and yellow blocks is detected
 4. Returning the red and yellow blocks to the starting "box"
 
 ### __Functional Requirements__
@@ -21,20 +21,36 @@ I need to design a program for the EV3 robot to navigate around the green and bl
 
 *Green/Blue Detection* : The robot must turn 90° or go around the object if the colour sensor detects that it is green or blue
 
-*Yellow/Red Detections* : The robot must move towards the objects if the colour sensor detects that it is yellow or red and _______ pick it up??
+*Yellow/Red Detections* : The robot must move towards the objects if the colour sensor detects that it is yellow or red and put it into the "cage"
 
 ### __Use Cases__
 #### A use case describes a specific situation or scanerio where the robot will perform that action. Write a use case for each functional requirement describing a scenario where the robot will perform the required action.
-Scenario : The robot is navigating a path and encounters an obstacle
+*Scenario 1* : The robot is navigating a path and encounters an obstacle  
+*Inputs* : The ultrasonic sensor detects an object within 10 cm  
+*Inputs* : The colour sensor detects the colour as red or yellow  
+*Action* : The robot puts it into the "cage" 
+*Expected Outcome* : The robot picks it up and returns the block to the starting "box"
 
-Inputs : The ultrasonic sensor detects an object within 10 cm
+*Scenario 2* : The robot is navigating a path and encounters an obstacle  
+*Inputs* : The ultrasonic sensor detects an object within 10cm  
+*Inputs* : The colour sensor detects the colour as green or blue  
+*Action* : The robot turn 90° to avoid the obstacle  
+*Expected Outcome* : The robot avoids the obstacle and continues its path
 
-Inputs : The colour sensor detects the colour
+### __Test Cases__
+#### For each use case, develop a test case for it:
+* Identify the inputs (e.g. sensor, data, button presses)  
+* Identify the expected outcomes (e.g. motor movement, sound, display messages)  
 
+| Test Case | Input     | Expected Output  |
+|---------- |---------- |----------------  |
+|Avoids Obstacle|Ultrasonic Sensor detects < 10cm|Robot detects the colour|
+|Detects Colour|Colour Sensor detects red or yellow|Robots puts it into the "cage"|
+|           |Colour Sensor detects green or blue|Robots stops and turns 90°|
 
+### __Non-Functional Requirements__
+#### These are requirements that focus on how well the robot will perform in completing the task, rather than the completing of the task itself. Consider the following:
+* Efficieny - It should be able to complete it within minutes
+* Response Time - The robot should detect the obstacle and its colour within 1 second
+* Accuracy  - When putting it into the "cage" it should not miss or move backwards to lose the block
 
-
-
-
-### Non-Functional Requirements
-My non-functional requirements are... 
