@@ -54,3 +54,20 @@ I need to design a program for the EV3 robot to navigate around the green and bl
 * Response Time - The robot should detect the obstacle and its colour within 1 second
 * Accuracy  - When putting it into the "cage" it should not miss or move backwards to lose the block
 
+### __Test Case__ 
+#### Number 1
+obstacle_sensor = UltrasonicSensor(Port.S4)
+
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
+
+ev3.speaker.beep()
+
+while True:
+    robot.drive(200, 0)
+
+    if obstacle_sensor.distance() < 300:
+        wait(10)
+        robot.straight(-200)
+        robot.turn(90)
+        robot.straight(300)
+        robot.turn(-90)
