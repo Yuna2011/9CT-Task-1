@@ -56,10 +56,50 @@ I need to design a program for the EV3 robot to navigate around the green and bl
 
 ### __Test Case__ 
 #### Number 1
+This is for the ultrasonic sensor to detect obstacles and move around them.  
+First try:
+```
+obstacle_sensor = UltrasonicSensor(Port.S4)  
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)  
+ev3.speaker.beep()
+
+while True:   
+robot.drive(200, 0)  
+    if obstacle_sensor.distance() < 150:  
+        wait(10)  
+        robot.straight(-100)  
+        robot.turn(90)  
+        robot.straight(150)  
+        robot.turn(-90)  
+```
+Improvements:  
+The robot kept getting too close to the obstacles before detecting them ...
+
+Improved Version:
+```
+obstacle_sensor = UltrasonicSensor(Port.S4)  
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)  
+ev3.speaker.beep()
+
+while True:   
+robot.drive(200, 0)  
+    if obstacle_sensor.distance() < 300:  
+        wait(10)  
+        robot.straight(-200)  
+        robot.turn(90)  
+        robot.straight(300)  
+        robot.turn(-90)  
+```
+
+#### Number 2
+This is for the colour sensor to detect the blue and green obstacles.  
+First try:
+```
 obstacle_sensor = UltrasonicSensor(Port.S4)
-
+colour_sensor = ColorSensor(Port.S3)
+left_motor = Motor(Port.B)
+right_motor = Motor(Port.C)
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
-
 ev3.speaker.beep()
 
 while True:
@@ -67,7 +107,25 @@ while True:
 
     if obstacle_sensor.distance() < 300:
         wait(10)
-        robot.straight(-200)
-        robot.turn(90)
-        robot.straight(300)
-        robot.turn(-90)
+        if colour_sensor.color() == Color.BLUE:
+            ev3.speaker.beep()
+            ev3.speaker.beep()
+            break
+        elif colour_sensor.color() == Color.GREEN:
+            ev3.speaker.beep()
+            ev3.speaker.beep()
+            ev3.speaker.beep()
+            break
+        else:
+            ev3. speaker.beep()
+```
+
+Improvements:  
+This didnt work and kept on just beeping once saying that it was only able to detect and obstacle but no the correct colour. The Color.Green or Color.BLUE will probably be the problem as it is the result the robot returns to us and we acidentally used that as our actual code. We can try to shorten the length in whioch the ultrasonic sensor detects the obstalce to try and get the colour sensor to detect it better at a shorter distance.
+
+1. use the youtube video and change it to detect colour and create a new variable but it doesnt work
+2. change the detect colour to just colour thinking it was a code made by python but we had to define it so it prob dont work
+
+
+
+Final Version:

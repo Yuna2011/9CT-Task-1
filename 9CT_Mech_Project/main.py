@@ -31,20 +31,81 @@ robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 
 ev3.speaker.beep()
 
+# while True:
+    #robot.drive(200, 0)
+
+   # if obstacle_sensor.distance() < 300:
+    #    wait(10)
+      #  if colour_sensor.color() == Color.RED:
+       #     ev3.speaker.beep()
+       #     ev3.speaker.beep()
+     #   elif colour_sensor.color() == Color.YELLOW:
+        #    ev3.speaker.beep()
+        #    ev3.speaker.beep()
+       #     ev3.speaker.beep()
+      #  else:
+      #      robot.straight(-200)
+       #     robot.turn(90)
+        #    robot.straight(300)
+       #     robot.turn(-90)
+
+
+
+
+
+
+obstacle_sensor = UltrasonicSensor(Port.S4)
+colour_sensor = ColorSensor(Port.S3)
+
+left_motor = Motor(Port.B)
+right_motor = Motor(Port.C)
+
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
+
+ev3.speaker.beep()
+
 while True:
     robot.drive(200, 0)
 
-    if obstacle_sensor.distance() < 300:
+    if obstacle_sensor.distance() < 150:
         wait(10)
-        if colour_sensor.color() == Color.RED:
+        detectedColor = colour_sensor()
+        if detectedColor == Color.BLUE:
             ev3.speaker.beep()
             ev3.speaker.beep()
-        elif colour_sensor.color() == Color.YELLOW:
+            break
+        elif detectedColor == Color.GREEN:
             ev3.speaker.beep()
             ev3.speaker.beep()
             ev3.speaker.beep()
+            break
         else:
-            robot.straight(-200)
-            robot.turn(90)
-            robot.straight(300)
-            robot.turn(-90)
+            ev3. speaker.beep()
+
+
+obstacle_sensor = UltrasonicSensor(Port.S4)
+colour_sensor = ColorSensor(Port.S3)
+
+left_motor = Motor(Port.B)
+right_motor = Motor(Port.C)
+
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
+
+ev3.speaker.beep()
+
+while True:
+    robot.drive(200, 0)
+
+    if obstacle_sensor.distance() < 150:
+        wait(10)
+        if colour_sensor.color == Color.BLUE:
+            ev3.speaker.beep()
+            ev3.speaker.beep()
+            break
+        elif colour_sensor.color == Color.GREEN:
+            ev3.speaker.beep()
+            ev3.speaker.beep()
+            ev3.speaker.beep()
+            break
+        else:
+            ev3. speaker.beep()
