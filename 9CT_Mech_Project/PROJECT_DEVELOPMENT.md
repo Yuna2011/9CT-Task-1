@@ -175,7 +175,7 @@ while True:
 Imrovements:  
 We got help from Mr Scott and he helped us get the colour sensor to detect the colours of the blocks by getting rid of all the stuff around it and only focusing on judt detecting the colour. The problem in our code was not our colour sensor detection but:  
 1. the robot was in light detecting settings.
-2. our else statement was messing with the code as if it detected a different colour, it just ended because of the break.
+2. our else statement was messing with the code as if it detected a different colour, it just ended because of the break.  
 Now we are going to use this code and put it into our program.
 
 
