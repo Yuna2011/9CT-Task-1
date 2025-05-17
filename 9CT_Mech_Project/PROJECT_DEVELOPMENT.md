@@ -128,4 +128,54 @@ This didnt work and kept on just beeping once saying that it was only able to de
 
 
 
-Final Version:
+Improved Version:  
+```
+from pybricks.hubs import EV3Brick
+from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,InfraredSensor, UltrasonicSensor, GyroSensor)
+from pybricks.parameters import Port, Stop, Direction, Button, Color
+from pybricks.tools import wait, StopWatch, DataLog
+from pybricks.robotics import DriveBase
+from pybricks.media.ev3dev import SoundFile, ImageFile
+
+
+# This program requires LEGO EV3 MicroPython v2.0 or higher.
+# Click "Open user guide" on the EV3 extension tab for more information.
+# Create your objects here.
+ev3 = EV3Brick()
+obstacle_sensor = UltrasonicSensor(Port.S4)
+colour_sensor = ColorSensor(Port.S3)
+left_motor = Motor(Port.B)
+right_motor = Motor(Port.C)
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
+
+
+# Write your program here.
+ev3.speaker.b
+while True:
+   colour = colour_sensor.color()
+   robot.drive(200, 0)
+
+
+    #if obstacle_sensor.distance() < 300:
+      #wait(3)
+   if colour == Color.BLUE:
+      ev3.speaker.beep()
+      ev3.speaker.beep()
+      break
+   if colour == Color.GREEN:
+      ev3.speaker.beep()
+      ev3.speaker.beep()
+      ev3.speaker.beep()
+      break
+   #else:
+      #ev3.speaker.beep()
+      #break
+```
+
+Imrovements:  
+We got help from Mr Scott and he helped us get the colour sensor to detect the colours of the blocks by getting rid of all the stuff around it and only focusing on judt detecting the colour. The problem in our code was not our colour sensor detection but:  
+1. the robot was in light detecting settings.
+2. our else statement was messing with the code as if it detected a different colour, it just ended because of the break.
+Now we are going to use this code and put it into our program.
+
+
