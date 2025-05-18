@@ -232,7 +232,7 @@ We got help from Mr Scott and he helped us get the colour sensor to detect the c
 
 Now we are going to use this code and put it into our program.
 
-FINAL TEST CASE  
+
 This is for the robot to be able to detect the yellow block:
 ```
 from pybricks.hubs import EV3Brick
@@ -285,6 +285,7 @@ while collected_obstacles < 2:
 ```
 We were going to use this until we found out that the colour sensor couldn't detect the yellow block in the way we wanted it to because the block was too close so we had to sratch the automatic driving idea.  
 
+FINAL TEST CASE  
 This is for the robot to be able to bring the red and yellow blocks back:
 ``` 
 from pybricks.hubs import EV3Brick
