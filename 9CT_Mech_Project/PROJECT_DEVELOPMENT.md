@@ -285,7 +285,7 @@ while collected_obstacles < 2:
 ```
 We were going to use this until we found out that the colour sensor couldn't detect the yellow block in the way we wanted it to because the block was too close so we had to sratch the automatic driving idea.  
 
-FINAL TEST CASE  
+ 
 This is for the robot to be able to bring the red and yellow blocks back:
 ``` 
 from pybricks.hubs import EV3Brick
@@ -370,6 +370,7 @@ while True:
 
 The robot could kind if bring the red block back but we couldn't acheive the same for the yellow block. We couldn't use the colour sensor as it couldn't sense the colour accurately until it was very close and we didn't have the time to tweak it so we used a random if statement to use the colour sensor in some way. In the end, we just made the colour sensor detect the ground which is white.   
 
+FINAL TEST CASE 
 This is for the colour sensor to detect the colour of the ground:
 
 ```
